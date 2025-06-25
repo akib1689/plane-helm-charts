@@ -53,14 +53,14 @@ spec:
           subPath: ''
       serviceAccount: {{ .Release.Name }}-srv-account
       serviceAccountName: {{ .Release.Name }}-srv-account
-      {{- with .Values.postgres.nodeSelector -}}
-        nodeSelector: {{ toYaml . | nindent 8}}
+      {{- with .Values.postgres.nodeSelector }}
+      nodeSelector: {{ toYaml . | nindent 8}}
       {{- end -}}
-      {{- with .Values.postgres.tolerations -}}
-        tolerations: {{ toYaml . | nindent 8 }}
+      {{- with .Values.postgres.tolerations }}
+      tolerations: {{ toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.postgres.affinity -}}
-        affinity: {{ toYaml . | nindent 8 }}
+      {{- with .Values.postgres.affinity }}
+      affinity: {{ toYaml . | nindent 8 }}
       {{- end }}
   volumeClaimTemplates:
   - apiVersion: v1

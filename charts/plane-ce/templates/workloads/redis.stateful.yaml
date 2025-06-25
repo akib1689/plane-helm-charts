@@ -49,14 +49,14 @@ spec:
           subPath: ''
       serviceAccount: {{ .Release.Name }}-srv-account
       serviceAccountName: {{ .Release.Name }}-srv-account
-      {{- with .Values.redis.nodeSelector -}}
-        nodeSelector: {{ toYaml . | nindent 8}}
-      {{- end -}}
-      {{- with .Values.redis.tolerations -}}
-        tolerations: {{ toYaml . | nindent 8 }}
+      {{- with .Values.redis.nodeSelector }}
+      nodeSelector: {{ toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.redis.affinity -}}
-        affinity: {{ toYaml . | nindent 8 }}
+      {{- with .Values.redis.tolerations }}
+      tolerations: {{ toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.redis.affinity }}
+      affinity: {{ toYaml . | nindent 8 }}
       {{- end }}
   volumeClaimTemplates:
   - apiVersion: v1
