@@ -16,7 +16,8 @@
 
   1. Set-up and customization
 
-      - Quick set-up<br>
+      - Quick set-up
+
         This is the fastest way to deploy Plane with default settings. This will create stateful deployments for Postgres, Rabbitmq, Redis, and Minio with a persistent volume claim using the default storage class. This also sets up the ingress routes for you using `nginx` ingress class.
         > To customize this, see `Custom ingress routes` below.
 
@@ -36,7 +37,7 @@
               --wait-for-jobs
           ```
 
-        > This is the basic setup required for Plane-CE. You can customize the default values for namespace and appname as needed. Additional settings can be configured by referring to the Configuration Settings section.<br>
+        > This is the basic setup required for Plane-CE. You can customize the default values for namespace and appname as needed. Additional settings can be configured by referring to the Configuration Settings section.
 
         Using a Custom StorageClass
 
@@ -297,7 +298,6 @@
 | env.secret_key | 60gp0byfz2dvffa45cxl20p1scy9xbpf6d8c5y0geejgkyp1b5 | Yes | This must a random string which is used for hashing/encrypting the sensitive data within the application. Once set, changing this might impact the already hashed/encrypted data|
 | env.default_cluster_domain | cluster.local | Yes | Set this value as configured in your kubernetes cluster. `cluster.local` is usally the default in most cases. |
 
-
 ## External Secrets Config
 
 To configure the external secrets for your application, you need to define specific environment variables for each secret category. Below is a list of the required secrets and their respective environment variables.
@@ -323,7 +323,6 @@ To configure the external secrets for your application, you need to define speci
 |                      | `DATABASE_URL`           | Yes | PostgreSQL connection URL                    | **k8s service example**: `postgresql://plane:plane@plane-pgdb.plane-ns.svc.cluster.local:5432/plane` <br> <br>**external service example**: `postgresql://username:password@your-db-host:5432/plane` |
 |                      | `AMQP_URL`               | Yes | RabbitMQ connection URL                      | **k8s service example**: `amqp://plane:plane@plane-rabbitmq.plane-ns.svc.cluster.local:5672/`  <br> <br> **external service example**: `amqp://username:password@your-rabbitmq-host:5672/` |
 | live_env_existingSecret      | `REDIS_URL`              | Yes | Redis URL                                    | `redis://plane-redis.plane-ns.svc.cluster.local:6379/` |
-
 
 ## Custom Ingress Routes
 
